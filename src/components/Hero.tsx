@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, Sparkles, Code, Rocket } from 'lucide-react';
-import abdullahPortrait from '@/assets/abdullah-portrait.jpg';
+import fahimProfile from '@/assets/fahim-profile.png';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -139,20 +139,22 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Enhanced Profile Image */}
+          {/* Right Content - Enhanced Profile Image with Circular Mask */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
               {/* Decorative elements */}
-              <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-2xl group-hover:blur-3xl smooth-transition pulse-glow"></div>
+              <div className="absolute -inset-8 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full blur-2xl group-hover:blur-3xl smooth-transition pulse-glow"></div>
               
-              {/* Main image container */}
+              {/* Main image container with circular mask */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-3xl"></div>
-                <img
-                  src={abdullahPortrait}
-                  alt="Abdullah Islam Fahim - Software Engineer and Web Developer"
-                  className="relative w-80 h-96 object-cover rounded-3xl shadow-2xl group-hover:scale-105 smooth-transition"
-                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-full"></div>
+                <div className="w-80 h-80 rounded-full overflow-hidden shadow-2xl group-hover:scale-105 smooth-transition border-4 border-primary/20">
+                  <img
+                    src={fahimProfile}
+                    alt="Abdullah Islam Fahim - Software Engineer and Web Developer"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
                 
                 {/* Floating tech icons */}
                 <div className="absolute -top-4 -left-4 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 flex items-center justify-center floating-element">
@@ -160,6 +162,9 @@ const Hero = () => {
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 flex items-center justify-center floating-element">
                   <Rocket className="h-6 w-6 text-accent" />
+                </div>
+                <div className="absolute top-1/2 -right-8 w-10 h-10 bg-card/80 backdrop-blur-sm rounded-full border border-border/50 flex items-center justify-center floating-element">
+                  <Sparkles className="h-5 w-5 text-yellow-400" />
                 </div>
               </div>
             </div>
