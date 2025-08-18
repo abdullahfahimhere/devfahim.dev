@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,22 +10,14 @@ import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
-  };
-
+  // Update state when input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -32,46 +25,44 @@ const Contact = () => {
     });
   };
 
+  // Submit form using EmailJS
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        'service_h8i19jo',    // ✅ Your EmailJS service ID
+        'template_k1r034p',   // ✅ Your EmailJS template ID
+        formRef.current,
+        '0MNPZRWyJlMDtQQXn'   // ✅ Your EmailJS public key
+      )
+      .then(() => {
+        toast({
+          title: "✅ Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      })
+      .catch(() => {
+        toast({
+          title: "❌ Message failed!",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      });
+  };
+
   const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'abdullah.fahim@example.com',
-      href: 'mailto:abdullah.fahim@example.com',
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+880 1XX XXX XXXX',
-      href: 'tel:+8801xxxxxxxxx',
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Dhaka, Bangladesh',
-      href: '#',
-    },
+    { icon: Mail, label: 'Email', value: 'abdullah.fahim@example.com', href: 'mailto:abdullah.fahim@example.com' },
+    { icon: Phone, label: 'Phone', value: '+880 1XX XXX XXXX', href: 'tel:+8801xxxxxxxxx' },
+    { icon: MapPin, label: 'Location', value: 'Dhaka, Bangladesh', href: '#' },
   ];
 
   const socialLinks = [
-    {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com',
-      color: 'hover:text-gray-400',
-    },
-    {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com',
-      color: 'hover:text-blue-400',
-    },
-    {
-      icon: Mail,
-      label: 'Email',
-      href: 'mailto:abdullah.fahim@example.com',
-      color: 'hover:text-red-400',
-    },
+    { icon: Github, label: 'GitHub', href: 'https://github.com', color: 'hover:text-gray-400' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com', color: 'hover:text-blue-400' },
+    { icon: Mail, label: 'Email', href: 'mailto:abdullah.fahim@example.com', color: 'hover:text-red-400' },
   ];
 
   return (
@@ -90,7 +81,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="p-8 card-gradient border-border/50">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Label htmlFor="name">Full Name</Label>
                 <Input
@@ -152,12 +143,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <a 
-                      href={info.href}
-                      className="font-medium hover:text-primary smooth-transition"
-                    >
-                      {info.value}
-                    </a>
+                    <a href={info.href} className="font-medium hover:text-primary smooth-transition">{info.value}</a>
                   </div>
                 </div>
               ))}
