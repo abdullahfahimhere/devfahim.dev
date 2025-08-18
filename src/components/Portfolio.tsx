@@ -13,10 +13,11 @@ const Portfolio = () => {
       technologies: ['React', 'Node.js', 'MongoDB', 'Game Design'],
       achievement: 'Global Finalist',
       icon: Award,
-      links: {
-        demo: '#',
-        github: '#',
-      },
+  links: {
+  demo: 'https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/ecoranger/?tab=details', // EcoRanger
+  github: 'https://github.com/ecoranger',
+},
+
     },
     {
       title: 'Innovator Youth Platform',
@@ -26,10 +27,11 @@ const Portfolio = () => {
       technologies: ['React', 'Firebase', 'Tailwind CSS', 'Community Management'],
       achievement: 'Co-Founder & Organizer',
       icon: Users,
-      links: {
-        demo: '#',
-        github: '#',
-      },
+  links: {
+  demo: 'https://innovatoryouth.com/', // Innovator Youth Platform
+  github: 'https://github.com/innovatoryouth',
+},
+
     },
     {
       title: 'Student Collaboration App',
@@ -39,10 +41,11 @@ const Portfolio = () => {
       technologies: ['React Native', 'Express.js', 'PostgreSQL', 'Real-time Chat'],
       achievement: 'Hackathon Champion',
       icon: Trophy,
-      links: {
-        demo: '#',
-        github: '#',
-      },
+  links: {
+  demo: 'https://devfuad.com/diu-link-mobile-app/', // Student Collaboration App
+  github: 'https://github.com/studentcollabapp',
+},
+
     },
   ];
 
@@ -107,16 +110,30 @@ const Portfolio = () => {
                     </div>
                   </div>
 
-                  <div className="flex space-x-4">
-                    <Button variant="default" size="sm">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Github className="mr-2 h-4 w-4" />
-                      Source Code
-                    </Button>
-                  </div>
+               <div className="flex space-x-4">
+  <a
+    href={project.links.demo}   // প্রতিটি project এর আলাদা link
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="default" size="sm">
+      <ExternalLink className="mr-2 h-4 w-4" />
+      View Project
+    </Button>
+  </a>
+
+  <a
+    href={project.links.github}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" size="sm">
+      <Github className="mr-2 h-4 w-4" />
+      Source Code
+    </Button>
+  </a>
+</div>
+
                 </div>
               </div>
             </Card>
