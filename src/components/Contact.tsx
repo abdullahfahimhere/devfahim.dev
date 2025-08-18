@@ -54,8 +54,8 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'abdullah.fahim@example.com', href: 'mailto:abdullah.fahim@example.com' },
-    { icon: Phone, label: 'Phone', value: '+880 1XX XXX XXXX', href: 'tel:+8801xxxxxxxxx' },
+    { icon: Mail, label: 'Email', value: 'abdullahfahimhere@gmail.com', href: 'mailto:abdullahfahimhere@gmail.com' },
+    { icon: Phone, label: 'Phone', value: '+880 1304059616', href: 'tel:+8801304059616' },
     { icon: MapPin, label: 'Location', value: 'Dhaka, Bangladesh', href: '#' },
   ];
 

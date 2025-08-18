@@ -63,11 +63,18 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="hover:glow-effect">
-              <Download className="mr-2 h-4 w-4" />
-              Resume
-            </Button>
-          </div>
+  <a
+    href="https://drive.google.com/file/d/19-OKT1bgsL5Ov3PpCdGX4befNjL7hWP6/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" size="sm" className="hover:glow-effect">
+      <Download className="mr-2 h-4 w-4" />
+      Resume
+    </Button>
+  </a>
+</div>
+
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -96,11 +103,18 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="pt-2 px-2">
-                <Button variant="outline" size="sm" className="w-full">
-                  <Download className="mr-2 h-4 w-4" />
-                  Resume
-                </Button>
-              </div>
+  <a
+    href="https://drive.google.com/file/d/19-OKT1bgsL5Ov3PpCdGX4befNjL7hWP6/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" size="sm" className="w-full">
+      <Download className="mr-2 h-4 w-4" />
+      Resume
+    </Button>
+  </a>
+</div>
+
             </div>
           </div>
         )}

@@ -24,19 +24,25 @@ const Footer = () => {
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/abdullah-islam-fahim-328671231/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary smooth-transition"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a 
-                href="mailto:abdullah.fahim@example.com"
-                className="text-muted-foreground hover:text-primary smooth-transition"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+              <a
+  href="#contact"
+  onClick={(e) => {
+    e.preventDefault();
+    const element = document.querySelector("#contact");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="text-muted-foreground hover:text-primary smooth-transition"
+>
+  <Mail className="h-5 w-5" />
+</a>
+
             </div>
           </div>
 
