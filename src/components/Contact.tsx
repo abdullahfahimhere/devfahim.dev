@@ -61,8 +61,8 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Github, label: 'GitHub', href: 'https://github.com', color: 'hover:text-gray-400' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com', color: 'hover:text-blue-400' },
-    { icon: Mail, label: 'Email', href: 'mailto:abdullah.fahim@example.com', color: 'hover:text-red-400' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/abdullah-islam-fahim-328671231/', color: 'hover:text-blue-400' },
+    { icon: Mail, label: 'Email', href: 'mailto:abdullahfahimhere@gmail.com', color: 'hover:text-red-400' },
   ];
 
   return (
