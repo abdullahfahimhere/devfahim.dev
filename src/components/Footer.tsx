@@ -77,8 +77,8 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Get in Touch</h4>
             <div className="space-y-2 text-muted-foreground">
               <p>Dhaka, Bangladesh</p>
-              <p>abdullah.fahim@example.com</p>
-              <p>+880 1XX XXX XXXX</p>
+              <p>abdullahfahimhere@gmail.com</p>
+              <p>+880 130 405 9616</p>
             </div>
           </div>
         </div>
