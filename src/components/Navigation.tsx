@@ -33,12 +33,17 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 smooth-transition ${
-      scrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+      scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-gradient">Abdullah</h1>
+            <button 
+              onClick={() => scrollToSection('#home')}
+              className="text-xl font-bold text-gradient hover:scale-105 smooth-transition"
+            >
+              Abdullah
+            </button>
           </div>
           
           {/* Desktop Navigation */}
@@ -48,16 +53,17 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground hover:text-primary smooth-transition font-medium"
+                  className="relative text-foreground hover:text-primary smooth-transition font-medium group py-2"
                 >
                   {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full smooth-transition"></span>
                 </button>
               ))}
             </div>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" className="hover:glow-effect">
               <Download className="mr-2 h-4 w-4" />
               Resume
             </Button>
@@ -69,26 +75,27 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
+              className="hover:bg-primary/10"
             >
-              {isOpen ? <X /> : <Menu />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card/95 backdrop-blur-md rounded-lg mt-2">
+          <div className="md:hidden animate-fade-in">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card/95 backdrop-blur-xl rounded-xl mt-2 shadow-xl border border-border/50">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-accent/10 rounded-md smooth-transition"
+                  className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-primary/10 rounded-lg smooth-transition"
                 >
                   {item.name}
                 </button>
               ))}
-              <div className="pt-2">
+              <div className="pt-2 px-2">
                 <Button variant="outline" size="sm" className="w-full">
                   <Download className="mr-2 h-4 w-4" />
                   Resume
