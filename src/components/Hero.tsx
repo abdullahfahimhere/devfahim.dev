@@ -22,7 +22,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden"
+    >
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl floating-element"></div>
@@ -32,8 +35,8 @@ const Hero = () => {
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
+              'radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)',
+            backgroundSize: '40px 40px',
           }}
         ></div>
         <div
@@ -46,11 +49,13 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-6 mt-12 lg:mt-16">
+              {/* Availability Badge */}
               <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary font-medium text-sm animate-fade-in">
                 <Sparkles className="mr-2 h-4 w-4" /> Available for opportunities
               </div>
 
+              {/* Main Heading */}
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 Hi, I'm{' '}
                 <span className="text-gradient block lg:inline">Abdullah Islam Fahim</span>
@@ -105,9 +110,13 @@ const Hero = () => {
             {/* Social links */}
             <div className="flex justify-center lg:justify-start space-x-6">
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/abdullah-islam-fahim-328671231/", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:abdullahfahimhere.com", label: "Email" }
+                { icon: Github, href: 'https://github.com', label: 'GitHub' },
+                {
+                  icon: Linkedin,
+                  href: 'https://www.linkedin.com/in/abdullah-islam-fahim-328671231/',
+                  label: 'LinkedIn',
+                },
+                { icon: Mail, href: 'mailto:abdullahfahimhere.com', label: 'Email' },
               ].map((social, index) => (
                 <a
                   key={index}
