@@ -8,34 +8,32 @@ const Hero = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+    const handleMouseMove = (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const achievements = [
+    { icon: Rocket, text: "NASA Space Apps Global Finalist", color: "text-yellow-400" },
+    { icon: Code, text: "Full-Stack Developer", color: "text-blue-400" },
+    { icon: Sparkles, text: "Innovation Leader", color: "text-purple-400" }
+  ];
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden px-4 sm:px-6 lg:px-8">
-      {/* Background */}
+    <section id="home" className="min-h-screen flex flex-col justify-center hero-gradient relative overflow-hidden px-4 sm:px-6 lg:px-8">
+      {/* Background floating blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl floating-element"></div>
         <div className="absolute top-60 right-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl floating-element"></div>
         <div className="absolute bottom-40 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl floating-element"></div>
         <div
           className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
+          style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)", backgroundSize: "40px 40px" }}
         ></div>
         <div
           className="absolute w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none smooth-transition"
@@ -43,6 +41,7 @@ const Hero = () => {
         />
       </div>
 
+      {/* Content */}
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-16">
         {/* Left Content */}
         <div className="text-center lg:text-left space-y-6 lg:space-y-8 w-full lg:w-1/2">
@@ -51,8 +50,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight break-words">
-            Hi, I'm{' '}
-            <span className="text-gradient block lg:inline">Abdullah Islam Fahim</span>
+            Hi, I'm <span className="text-gradient block lg:inline">Abdullah Islam Fahim</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl text-muted-foreground font-light">
@@ -63,33 +61,18 @@ const Hero = () => {
             Turning ideas into impactful solutions through technology, innovation, and creative problem-solving.
           </p>
 
-{/* Achievements Marquee */}
-<div className="achievements-wrapper mt-4">
-  <div className="achievements-track">
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
-    </span>
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
-    </span>
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
-    </span>
-    {/* Duplicate for seamless looping */}
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
-    </span>
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
-    </span>
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
-    </span>
-  </div>
-</div>
+          {/* Achievements Marquee */}
+          <div className="achievements-wrapper mt-4">
+            <div ref={marqueeRef} className="achievements-track">
+              {[...achievements, ...achievements].map((item, idx) => (
+                <span key={idx} className="flex items-center gap-2 whitespace-nowrap">
+                  <item.icon className={`h-4 w-4 ${item.color}`} /> {item.text}
+                </span>
+              ))}
+            </div>
+          </div>
 
-
-          {/* Action buttons */}
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-6">
             <Button
               variant="hero"
@@ -134,7 +117,6 @@ const Hero = () => {
               <div className="w-64 md:w-80 h-64 md:h-80 rounded-full overflow-hidden shadow-2xl group-hover:scale-105 smooth-transition border-4 border-primary/20">
                 <img src={fahimProfile} alt="Abdullah Islam Fahim" className="w-full h-full object-cover object-center"/>
               </div>
-              {/* Floating icons */}
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-xl border border-border/50 flex items-center justify-center floating-element">
                 <Code className="h-6 w-6 text-primary"/>
               </div>
