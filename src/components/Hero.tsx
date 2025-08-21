@@ -74,16 +74,29 @@ const Hero = () => {
             </div>
 
             {/* Achievements inline */}
-         <div className="flex flex-nowrap items-center justify-center lg:justify-start gap-6 text-sm font-medium overflow-x-auto">
-  <span className="flex items-center gap-2 whitespace-nowrap">
-    <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
-  </span>
-  <span className="flex items-center gap-2 whitespace-nowrap">
-    <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
-  </span>
-  <span className="flex items-center gap-2 whitespace-nowrap">
-    <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
-  </span>
+   {/* Achievements line with auto scroll */}
+<div className="relative w-full overflow-hidden">
+  <div className="flex gap-6 text-sm font-medium whitespace-nowrap animate-marquee">
+    <span className="flex items-center gap-2">
+      <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
+    </span>
+    <span className="flex items-center gap-2">
+      <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
+    </span>
+    <span className="flex items-center gap-2">
+      <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
+    </span>
+    {/* Duplicate for seamless scroll */}
+    <span className="flex items-center gap-2">
+      <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
+    </span>
+    <span className="flex items-center gap-2">
+      <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
+    </span>
+    <span className="flex items-center gap-2">
+      <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
+    </span>
+  </div>
 </div>
 
 
