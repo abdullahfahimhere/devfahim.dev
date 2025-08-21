@@ -61,12 +61,10 @@ const Hero = () => {
                 <span className="text-gradient block lg:inline">Abdullah Islam Fahim</span>
               </h1>
 
-            {/* One-line subtitle */}
-<h2 className="text-sm sm:text-lg md:text-xl text-muted-foreground font-light lg:whitespace-nowrap">
-  Software Engineering Student | Full-Stack Developer | Innovator
-</h2>
-
-
+              {/* One-line subtitle */}
+              <h2 className="text-lg md:text-xl text-muted-foreground font-light">
+                Software Engineering Student | Web Developer | Innovator
+              </h2>
 
               {/* Thin paragraph */}
               <p className="text-sm md:text-base text-muted-foreground font-extralight max-w-2xl leading-relaxed">
@@ -75,20 +73,18 @@ const Hero = () => {
               </p>
             </div>
 
-{/* Achievements inline */}
-<div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm md:text-base font-medium">
-  <span className="flex items-center gap-2">
-    <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
-  </span>
-  <span className="flex items-center gap-2">
-    <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
-  </span>
-  <span className="flex items-center gap-2">
-    <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
-  </span>
-</div>
-
-
+            {/* Achievements inline */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-medium">
+              <span className="flex items-center gap-2">
+                <Rocket className="h-4 w-4 text-yellow-400" /> NASA Space Apps Global Finalist
+              </span>
+              <span className="flex items-center gap-2">
+                <Code className="h-4 w-4 text-blue-400" /> Full-Stack Developer
+              </span>
+              <span className="flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-purple-400" /> Innovation Leader
+              </span>
+            </div>
 
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
