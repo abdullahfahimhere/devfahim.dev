@@ -63,7 +63,7 @@ const Hero = () => {
 
               {/* One-line subtitle */}
               <h2 className="text-lg md:text-xl text-muted-foreground font-light">
-                Software Engineering Student | Web Developer | Innovator
+                Software Engineering Student | Full-Stack Developer | Innovator
               </h2>
 
               {/* Thin paragraph */}
