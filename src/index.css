@@ -188,3 +188,8 @@ All colors MUST be HSL.
   display: inline-flex;
   animation: marquee 15s linear infinite;
 }
+
+.hover\:animation-pause:hover {
+  animation-play-state: paused;
+}
+
